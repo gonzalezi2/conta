@@ -40,7 +40,7 @@ app.use('/companies', companies);
 app.use('/companies/:id/projects', projects);
 app.use('/employees', employees);
 
-//Listen to port 3000
+//Listen to port
 app.listen(port, () => {
     console.log(`Starting the server at port ${port}`);
 });
