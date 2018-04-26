@@ -13,7 +13,7 @@ const 	express = require('express'),
 mongoose.connect(config.database, {useMongoClient: true});
 // mongoose.set('debug', true);
 //Declaring Port
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 //Initialize our app variable
 const app = express();
