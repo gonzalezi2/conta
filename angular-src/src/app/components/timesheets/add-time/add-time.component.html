@@ -1,0 +1,104 @@
+
+    <h2>
+        Add Timesheet
+    </h2>
+    <hr>
+    <form [formGroup]="timeForm" (ngSubmit)="onFormSubmit()">
+      <div class="">
+        <label>Date</label>
+        <input type="date" formControlName="date" class="form-control">
+      </div>
+      <hr>
+      <div>
+        <div class="flex-table">
+          <div class="flex-column large header">Employee</div>
+          <div class="flex-column header">Wed</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Thur</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Fri</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Sat</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Sun</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Mon</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Tues</div>
+          <div class="flex-column header">OT</div>
+          <div class="flex-column header">Rate</div>
+          <div class="flex-column header">Rate OT</div>
+          <div class="flex-column header">Total Hours</div>
+          <div class="flex-column header">Total OT</div>
+          <div class="flex-column header">Total Cost</div>
+        </div>
+        <div formArrayName="hours" class="table-rows" *ngFor="let hour of timeForm.controls['hours'].controls; let i = index;">
+          <div [formGroupName]="i" class="flex-table">
+            <div class="flex-column large">
+              <select formControlName="employee" class="form-control table-input">
+                <option value="" disabled>Select Employee</option>
+                <option *ngFor="let em of employees" value="{{em._id}}">{{em.name}}</option>
+              </select>
+            </div>
+            <div class="flex-column"><input type="number" formControlName="wed" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="wed_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="thurs" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="thurs_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="fri" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="fri_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="sat" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="sat_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="sun" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="sun_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="mon" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="mon_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="tues" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="tues_ot" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="rate" class="form-control table-input"></div>
+            <div class="flex-column"><input type="number" formControlName="rate_ot" class="form-control table-input"></div>
+            <div class="flex-column">
+              <input type="number" formControlName="reg_hrs" [ngModel]="addHours(i, 'reg')" class="form-control table-input" [readOnly]="true">
+            </div>
+            <div class="flex-column">
+              <input type="number" formControlName="ot_hrs" [ngModel]="addHours(i, 'ot')" class="form-control table-input" [readOnly]="true">
+            </div>
+            <div class="flex-column">
+              <input type="number" formControlName="tot_cost"  [ngModel]="calcCost(i)" class="form-control table-input" [readOnly]="true">
+            </div>
+            <button
+              *ngIf="timeForm.controls['hours'].controls.length > 1"
+              (click)="deleteRow(i)"
+              class="btn btn-danger btn-xs action-button">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="flex-table reverse">
+          <div class="flex-column">
+              <input type="number"
+                formControlName="tot_cost"
+                [ngModel]="calcTotals('tot_cost')"
+                class="form-control table-input" [readOnly]="true">
+          </div>
+          <div class="flex-column">
+            <input type="number"
+            formControlName="tot_ot"
+            [ngModel]="calcTotals('ot_hrs')"
+            class="form-control table-input" [readOnly]="true">
+          </div>
+          <div class="flex-column">
+            <input type="number"
+              formControlName="tot_hrs"
+              [ngModel]="calcTotals('reg_hrs')"
+              class="form-control table-input" [readOnly]="true">
+            </div>
+            <div class="flex-column total">Total</div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <button class="btn btn-secondary btn-sm" (click)="addNewRow()">Add Row</button>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>

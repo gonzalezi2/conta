@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+.flex-table {
+  display: flex;
+  position: relative;
+}
+
+.flex-table.reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  /* flex: auto; */
+  display: flex;
+  align-items: center;
+  width: 5%;
+  border: 0.5px solid #ddd;
+  font-size: .85em;
+}
+
+.flex-column.large {
+  /* flex: 1 0 auto; */
+  width: 10%;
+}
+
+.flex-column.total {
+  width: 90%;
+  background: #ecf0f1;
+  justify-content: flex-end;
+  padding-right: 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.flex-column.header {
+  padding: 0 5px;
+}
+
+.table-input {
+  border: 0;
+  text-align: center;
+  padding: 2px;
+  height: 35px;
+  border-radius: 0;
+}
+
+
+.table tfoot tr {
+  border-top: 2px double #ddd;
+}
+
+.action-button {
+  right: -30px;
+  top: 5px;
+  position: absolute;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

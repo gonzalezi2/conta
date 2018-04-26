@@ -1,0 +1,15 @@
+<div class="well">
+  <h3>{{company.name}}</h3>
+  <p>{{company.address}}</p>
+  <p>Projects: {{company.projects.length}}</p>
+</div>
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+      <div class='btn-group'>
+        <a class="btn btn-primary" href="companies/{{company._id}}/projects/add">Add Project</a>
+      </div>
+  </div>
+  <h2>Projects</h2>
+  <hr>
+</div>
+<app-projects [company]="company"></app-projects>

@@ -1,0 +1,18 @@
+<h2 class="page-header">Add project</h2>
+<div class="well">
+  <form (ngSubmit)="onFormSubmit()" [formGroup]="projectForm">
+    <div class="form-group">
+      <label for="">Location</label>
+      <input type="text" class="form-control input-sm" formControlName="location" name="location">
+    </div>
+    <div class="form-group">
+      <label for="">Contract Amount</label>
+      <input type="text" class="form-control input-sm" formControlName="contract" name="contract">
+    </div>
+    <div class="form-group">
+      <label for="">Starting Balance</label>
+      <input type="text" class="form-control input-sm" formControlName="balance" name="balance">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit" [disabled]="!projectForm.valid">
+  </form>
+</div>
