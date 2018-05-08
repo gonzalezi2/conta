@@ -11,7 +11,10 @@ const 	express = require('express'),
 
 //Connect mongoose to our database
 mongoose.connect(config.database, {useMongoClient: true});
-// mongoose.set('debug', true);
+mongoose.connection.on('error', (err) => {
+	console.log(`Database error: ${err}`);
+})
+mongoose.set('debug', true);
 //Declaring Port
 const port = process.env.PORT || 8080;
 
@@ -21,15 +24,11 @@ const app = express();
 //Middleware for CORS
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 //Middlewares for bodyparsing using both json and urlencoding
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-
-/*express.static is a built in middleware function to serve static files.
- We are telling express server public folder is the place to look for the static files
-
-*/
-app.use(express.static(path.join(__dirname, 'public')));
 
 //Routing all HTTP requests to the appropriate controller
 app.use('/companies', companies);
