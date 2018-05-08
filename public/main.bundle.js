@@ -863,7 +863,7 @@ var AddEmployeeComponent = /** @class */ (function () {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
             headers.append('Content-Type', 'application/json');
             this.employee = this.employeeForm.value;
-            return this.http.post('/employees', this.employee, { headers: headers })
+            return this.http.post('api/employees', this.employee, { headers: headers })
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 if (data.success) {
@@ -1725,7 +1725,7 @@ var AddTimeComponent = /** @class */ (function () {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
             headers.append('Content-Type', 'application/json');
             this.timesheet = this.timeForm.value;
-            return this.http.post("/companies/" + id + "/projects/" + proj_id + "/add-time", this.timesheet, { headers: headers })
+            return this.http.post("api/companies/" + id + "/projects/" + proj_id + "/add-time", this.timesheet, { headers: headers })
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 if (data.success) {
@@ -1947,19 +1947,19 @@ var CompanyService = /** @class */ (function () {
     CompanyService.prototype.getAllCompanies = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get('/companies', { headers: headers })
+        return this.http.get('api/companies', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     CompanyService.prototype.getCompanyById = function (id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get("/companies/" + id, { headers: headers })
+        return this.http.get("api/companies/" + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     CompanyService.prototype.addCompany = function (company) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/companies', company, { headers: headers })
+        return this.http.post('api/companies', company, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     CompanyService = __decorate([
@@ -1998,7 +1998,7 @@ var EmployeeService = /** @class */ (function () {
     EmployeeService.prototype.getAllEmployees = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */];
         headers.append('Content-Type', 'application/json');
-        return this.http.get('/employees', { headers: headers })
+        return this.http.get('api/employees', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     EmployeeService = __decorate([
@@ -2039,31 +2039,31 @@ var ProjectService = /** @class */ (function () {
     ProjectService.prototype.getAllProjects = function (company_id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get("/companies/" + company_id + "/projects", { headers: headers })
+        return this.http.get("api/companies/" + company_id + "/projects", { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProjectService.prototype.getProject = function (company_id, project_id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get("/companies/" + company_id + "/projects/" + project_id, { headers: headers })
+        return this.http.get("api/companies/" + company_id + "/projects/" + project_id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProjectService.prototype.addProject = function (company_id, project) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/companies/" + company_id + "/projects", project, { headers: headers })
+        return this.http.post("api/companies/" + company_id + "/projects", project, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProjectService.prototype.addIncome = function (company_id, project_id, income) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/companies/" + company_id + "/projects/" + project_id + "/add-income", income, { headers: headers })
+        return this.http.post("api/companies/" + company_id + "/projects/" + project_id + "/add-income", income, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProjectService.prototype.addExpense = function (company_id, project_id, expense) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/companies/" + company_id + "/projects/" + project_id + "/add-expense", expense, { headers: headers })
+        return this.http.post("api/companies/" + company_id + "/projects/" + project_id + "/add-expense", expense, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProjectService = __decorate([

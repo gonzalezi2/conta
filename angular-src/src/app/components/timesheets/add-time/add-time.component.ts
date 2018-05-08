@@ -133,7 +133,7 @@ export class AddTimeComponent implements OnInit {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       this.timesheet = this.timeForm.value;
-      return this.http.post(`/companies/${id}/projects/${proj_id}/add-time`, this.timesheet, {headers: headers})
+      return this.http.post(`api/companies/${id}/projects/${proj_id}/add-time`, this.timesheet, {headers: headers})
       .map(res => res.json())
       .subscribe(data => {
         if (data.success) {

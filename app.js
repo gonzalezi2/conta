@@ -11,6 +11,9 @@ const 	express = require('express'),
 
 //Connect mongoose to our database
 mongoose.connect(config.database, {useMongoClient: true});
+mongoose.connection.on('connected', () => {
+	console.log(`Database connected: ${config.database}`);
+})
 mongoose.connection.on('error', (err) => {
 	console.log(`Database error: ${err}`);
 })
@@ -31,17 +34,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //Routing all HTTP requests to the appropriate controller
-app.use('/companies', companies);
-app.use('/companies/:id/projects', projects);
-app.use('/employees', employees);
+app.use('/api/companies', companies);
+app.use('/api/companies/:id/projects', projects);
+app.use('/api/employees', employees);
 
-app.get('/', (req, res) => {
-    res.send("Invalid page");
-});
+// app.get('/', (req, res) => {
+//     res.send("Invalid page");
+// });
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+// app.get('*', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
 
 
 //Listen to port

@@ -9,21 +9,21 @@ export class CompanyService {
   getAllCompanies() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get('/companies', {headers: headers})
+    return this.http.get('api/companies', {headers: headers})
     .map(res => res.json());
   }
 
   getCompanyById(id) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get(`/companies/${id}`, {headers: headers})
+    return this.http.get(`api/companies/${id}`, {headers: headers})
     .map(res => res.json());
   }
 
   addCompany(company) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/companies', company, {headers: headers})
+    return this.http.post('api/companies', company, {headers: headers})
     .map(res => res.json());
   }
 

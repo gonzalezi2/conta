@@ -34,7 +34,7 @@ export class AddEmployeeComponent implements OnInit {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       this.employee = this.employeeForm.value;
-      return this.http.post('/employees', this.employee, {headers: headers})
+      return this.http.post('api/employees', this.employee, {headers: headers})
       .map(res => res.json())
       .subscribe(data => {
         if (data.success) {

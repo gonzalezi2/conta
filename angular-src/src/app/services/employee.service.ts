@@ -8,7 +8,7 @@ export class EmployeeService {
   getAllEmployees() {
     const headers = new Headers;
     headers.append('Content-Type', 'application/json');
-    return this.http.get('/employees', {headers: headers})
+    return this.http.get('api/employees', {headers: headers})
     .map(res => res.json());
   }
 }
