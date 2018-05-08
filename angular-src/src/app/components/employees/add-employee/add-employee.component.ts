@@ -3,6 +3,7 @@ import { Employee } from '../../../models/Employee';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-add-employee',
