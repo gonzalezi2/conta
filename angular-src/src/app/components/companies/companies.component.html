@@ -1,7 +1,7 @@
 <div class='page-header'>
   <div class='btn-toolbar pull-right'>
       <div class='btn-group'>
-        <a class="btn btn-primary" href="companies/add">Add Company</a>
+        <a class="btn btn-primary" routerLink="companies/add">Add Company</a>
       </div>
   </div>
   <h2>Companies</h2>
@@ -13,7 +13,7 @@
     <div *ngFor="let c of companies">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 card grid-item" *ngIf="c.isActive">
         <div class="card-container">
-            <a href="companies/{{c._id}}" class="card-heading-link">
+            <a routerLink="companies/{{c._id}}" class="card-heading-link">
               <div class="card-heading">
                 <span class="card-heading-main">{{c.name}}</span>
                 <span class="card-heading-sub">{{c.address}}</span>
@@ -28,7 +28,7 @@
               <span class="card-body-item"><i class="far fa-envelope"></i># of Projects: {{c.projects.length}}</span>
             </div>
             <div class="card-footer">
-              <a class="btn btn-default btn-sm" href="companies/{{c._id}}">View Company</a>
+              <a class="btn btn-default btn-sm" routerLink="companies/{{c._id}}">View Company</a>
             </div>
           </div>
         </div>
