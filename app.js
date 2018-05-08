@@ -31,14 +31,19 @@ app.use(bodyParser.json());
 */
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.send("Invalid page");
-})
-
 //Routing all HTTP requests to the appropriate controller
 app.use('/companies', companies);
 app.use('/companies/:id/projects', projects);
 app.use('/employees', employees);
+
+app.get('/', (req, res) => {
+    res.send("Invalid page");
+});
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 
 //Listen to port
 app.listen(port, () => {
