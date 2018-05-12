@@ -16,7 +16,7 @@
           <td>{{p.contract | currency}}</td>
           <td>{{p.balance | currency}}</td>
           <td>
-            <a routerLink="/companies/{{company._id}}/projects/{{p._id}}" class="btn btn-default btn-sm">View Project</a>
+            <a routerLink="/{{company._id}}/projects/{{p._id}}" class="btn btn-default btn-sm">View Project</a>
           </td>
         </tr>
       </tbody>

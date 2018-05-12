@@ -70,7 +70,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {useHash: true, enableTracing: true}),
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
     FlashMessagesModule.forRoot()
   ],
   providers: [CompanyService, EmployeeService, ProjectService],
