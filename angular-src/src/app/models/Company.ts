@@ -1,6 +1,7 @@
 import { Project } from './Project';
 
 export class Company {
+  _id: String;
   name: String;
   address: String;
   contact: String;
