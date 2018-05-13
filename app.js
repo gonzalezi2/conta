@@ -4,22 +4,21 @@ const 	express = require('express'),
 		bodyParser = require('body-parser'),
 		cors = require('cors'),
 		mongoose = require('mongoose'),
-		config = require('./config/database'),
 		companies = require('./controllers/companies'),
 		projects = require('./controllers/projects'),
 		employees = require('./controllers/employees');
 
 //Connect mongoose to our database
-mongoose.connect(config.database, {useMongoClient: true});
+mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
 mongoose.connection.on('connected', () => {
-	console.log(`Database connected: ${config.database}`);
-})
+	console.log(`Database connected: ${process.env.DATABASEURL}`);
+});
 mongoose.connection.on('error', (err) => {
 	console.log(`Database error: ${err}`);
 })
 mongoose.set('debug', true);
 //Declaring Port
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 //Initialize our app variable
 const app = express();

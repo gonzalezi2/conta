@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Project } from '../../models/Project';
 
 @Component({
   selector: 'app-expenses',
@@ -6,15 +7,17 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./expenses.component.css']
 })
 export class ExpensesComponent implements OnChanges {
-  @Input() public project;
-  totalExpense: Number = 0;
+  @Input() project: Project;
+  public totalExpense: Number = 0;
 
   constructor() { }
 
   ngOnChanges() {
-    this.project.expenses.forEach(expense => {
-      this.totalExpense += expense.amount;
-    });
+    if (this.project.expenses) {
+      this.project.expenses.forEach(expense => {
+        this.totalExpense += expense.amount;
+      });
+    }
   }
 
 }

@@ -1,6 +1,7 @@
 import { Timesheet} from './Timesheet';
 
 export class Project {
+  _id: String;
   location: String;
   contract: Number;
   balance: Number;

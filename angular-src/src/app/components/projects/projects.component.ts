@@ -11,8 +11,8 @@ import { Project } from '../../models/Project';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  @Input() public company: Company;
-  public projects: [Project];
+  @Input()
+  public projects: Project[];
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute,
@@ -20,16 +20,5 @@ export class ProjectsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.projectService.getAllProjects(id).subscribe(data => {
-      console.log(data);
-      this.company = this.company;
-      this.projects = data.projects;
-    },
-    err => {
-      console.log(err);
-      return false;
-    }
-    );
   }
 }

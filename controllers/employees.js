@@ -40,7 +40,6 @@ router.post('/', (req, res, next) => {
                 message: 'Failed to create a new Employee.',
                 error: err
             });
-
         }
         else
             res.json({

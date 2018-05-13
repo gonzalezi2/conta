@@ -7,6 +7,7 @@ import { Employee } from '../../../models/Employee';
 import { EmployeeService } from '../../../services/employee.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import 'rxjs/add/operator/map';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-add-time',
@@ -133,15 +134,15 @@ export class AddTimeComponent implements OnInit {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       this.timesheet = this.timeForm.value;
-      return this.http.post(`api/companies/${id}/projects/${proj_id}/add-time`, this.timesheet, {headers: headers})
+      return this.http.post(`${environment.url}/api/companies/${id}/projects/${proj_id}/add-time`, this.timesheet, {headers: headers})
       .map(res => res.json())
       .subscribe(data => {
         if (data.success) {
           this.flashMessage.show(data.message, {cssClass: 'alert-success', timeout: 3000});
-          this.router.navigate([`/companies/${id}/projects/${proj_id}`]);
+          this.router.navigateByUrl(`/companies/${id}/projects/${proj_id}`);
         } else {
           this.flashMessage.show(data.message, {cssClass: 'alert-danger', timeout: 3000});
-          this.router.navigate([`/companies/${id}/projects/${proj_id}`]);
+          this.router.navigateByUrl(`/companies/${id}/projects/${proj_id}`);
         }
       });
     }

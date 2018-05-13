@@ -28,6 +28,7 @@ import { IncomeComponent } from './components/income/income.component';
 import { AddIncomeComponent } from './components/income/add-income/add-income.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { AddExpenseComponent } from './components/expenses/add-expense/add-expense.component';
+import { CompanyCardComponent } from './components/companies/company-card/company-card.component';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     IncomeComponent,
     AddIncomeComponent,
     ExpensesComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    CompanyCardComponent
   ],
   imports: [
     BrowserModule,

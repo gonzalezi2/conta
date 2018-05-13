@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { CompanyService } from '../../../services/company.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -10,7 +10,7 @@ import { Company } from '../../../models/Company';
   styleUrls: ['./view-company.component.css']
 })
 export class ViewCompanyComponent implements OnInit {
-  company: Company;
+  @Output() company: Company;
 
   constructor(
     private companyService: CompanyService,
