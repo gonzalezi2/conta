@@ -4,17 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
-    "build": "ng build",
+    "start": "ng serve",
+    "build": "ng build --env=prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "~1.7.0",
-    "@angular/compiler-cli": "^5.2.0",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -29,12 +26,9 @@
     "core-js": "^2.4.1",
     "ng2-currency-mask": "^5.3.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19",
-    "typescript": "~2.5.3"
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.0",
-    "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
@@ -49,7 +43,6 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
-    "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "tslint": "~5.9.1"
   }
 }
