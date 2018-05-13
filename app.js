@@ -42,7 +42,7 @@ app.use('/api/employees', employees);
 // });
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '/public/index.html'));
+	res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 console.log(process.env.PORT, process.env.DATABASEURL);
