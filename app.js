@@ -37,9 +37,9 @@ app.use('/api/companies', companies);
 app.use('/api/companies/:id/projects', projects);
 app.use('/api/employees', employees);
 
-// app.get('/', (req, res) => {
-//     res.send("Invalid page");
-// });
+app.get('/', (req, res) => {
+    res.send("Invalid Endpoint");
+});
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public/index.html'));
