@@ -18,7 +18,7 @@ mongoose.connection.on('error', (err) => {
 })
 mongoose.set('debug', true);
 //Declaring Port
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 //Initialize our app variable
 const app = express();
@@ -42,7 +42,7 @@ app.use('/api/employees', employees);
 // });
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, './public/index.html'));
+	res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 console.log(process.env.PORT, process.env.DATABASEURL);
