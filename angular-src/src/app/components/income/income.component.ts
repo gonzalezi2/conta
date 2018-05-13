@@ -8,7 +8,7 @@ import { Project } from '../../models/Project';
 })
 export class IncomeComponent implements OnChanges {
   @Input() project: Project;
-  public totalIncome: Number = 0;
+  public totalIncome: any = 0;
 
   constructor() { }
 
