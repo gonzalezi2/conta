@@ -12,14 +12,8 @@
             "program": "${workspaceFolder}/app.js",
             "restart": true,
             "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js",
-            
+            "internalConsoleOptions": "neverOpen",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
