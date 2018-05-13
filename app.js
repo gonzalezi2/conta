@@ -41,9 +41,10 @@ app.use('/api/employees', employees);
 //     res.send("Invalid page");
 // });
 
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'public/index.html'));
-// });
+app.get('/*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 console.log(process.env.PORT, process.env.DATABASEURL);
 
 //Listen to port
