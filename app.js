@@ -8,17 +8,18 @@ const 	express = require('express'),
 		projects = require('./controllers/projects'),
 		employees = require('./controllers/employees');
 
-//Connect mongoose to our database
-mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+//Connect mongoose to our database process.env.DATABASEURL
+const databaseUrl = process.env.DATABASEURL;
+mongoose.connect(databaseUrl, {useMongoClient: true});
 mongoose.connection.on('connected', () => {
-	console.log(`Database connected: ${process.env.DATABASEURL}`);
+	console.log(`Database connected: ${databaseUrl}`);
 });
 mongoose.connection.on('error', (err) => {
 	console.log(`Database error: ${err}`);
 })
 mongoose.set('debug', true);
 //Declaring Port
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 //Initialize our app variable
 const app = express();
