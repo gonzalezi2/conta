@@ -8,8 +8,16 @@ const 	express = require('express'),
 		projects = require('./controllers/projects'),
 		employees = require('./controllers/employees');
 
-//Connect mongoose to our database process.env.DATABASEURL
+
+require('dotenv').config();
+
+//Connect mongoose to our database
 const databaseUrl = process.env.DATABASEURL;
+//Declaring Port
+const port = process.env.PORT;
+
+console.log(databaseUrl, port);
+
 mongoose.connect(databaseUrl, {useMongoClient: true});
 mongoose.connection.on('connected', () => {
 	console.log(`Database connected: ${databaseUrl}`);
@@ -17,9 +25,6 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
 	console.log(`Database error: ${err}`);
 })
-mongoose.set('debug', true);
-//Declaring Port
-const port = process.env.PORT;
 
 //Initialize our app variable
 const app = express();
@@ -45,8 +50,6 @@ app.use('/api/employees', employees);
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public/index.html'));
 });
-
-console.log(process.env.PORT, process.env.DATABASEURL);
 
 //Listen to port
 app.listen(port, () => {
