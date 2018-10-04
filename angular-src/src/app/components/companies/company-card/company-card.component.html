@@ -14,8 +14,9 @@
         <span class="card-body-item" *ngIf="company.website"><i class="fas fa-external-link-alt"></i> <a href="http://{{company.website}}" target="_blank">{{company.website}}</a></span>
         <span class="card-body-item"><i class="far fa-envelope"></i># of Projects: {{company.projects.length}}</span>
       </div>
-      <div class="card-footer">
-        <a class="btn btn-default btn-sm" routerLink="{{company._id}}">View Company</a>
+      <div class="card-footer text-right">
+        <a class="btn btn-default btn-sm" routerLink="{{company._id}}">View</a>
+        <a class="btn btn-default btn-sm" routerLink="{{company._id}}/edit">Edit</a>
       </div>
     </div>
   </div>

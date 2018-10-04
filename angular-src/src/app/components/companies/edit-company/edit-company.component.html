@@ -1,12 +1,12 @@
-<h2 class="page-header">Add Company</h2>
+<h2 class="page-header">Edit Company</h2>
 <div class="well">
-  <form (ngSubmit)="onFormSubmit()" [formGroup]="companyForm">
+  <form (ngSubmit)="onFormSubmit()" [formGroup]="companyForm" *ngIf="companyForm">
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label for="">Name</label>
-          <input type="text" class="form-control input-sm" formControlName="name" name="name">
-          <div style="color: orangered" role="alert" *ngIf="companyForm.controls['name'].pristine && companyForm.controls.name.touched">
+          <label for="name">Name</label>
+          <input type="text" class="form-control input-sm" formControlName="name" name="name" id="name">
+          <div style="color: orangered" role="alert" *ngIf="companyForm.controls['name'].pristine && companyForm.controls['name'].touched">
               Please fill out a name
           </div>
         </div>

@@ -28,4 +28,11 @@ export class CompanyService {
     .map(res => res.json());
   }
 
+  updateCompany(company, id) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(`api/companies/${id}`, company, {headers: headers})
+    .map(res => res.json());
+  }
+
 }
