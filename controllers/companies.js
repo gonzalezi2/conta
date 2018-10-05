@@ -29,9 +29,9 @@ router.get('/:id', (req, res) => {
 });
 
 //POST HTTP method to /company
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
     let newCompany = new Company(req.body);
-    newCompany.save((err, company) => {
+    newCompany.save((err) => {
         if(err) {
             res.json({success: false, message: `Failed to create a new company. Error: ${err}`});
 
@@ -43,9 +43,9 @@ router.post('/', (req, res, next) => {
 });
 
 //PUT HTTP method to /company
-router.put('/:id', (req, res, next) => {
+router.put('/:id', (req, res) => {
     let updatedCompany = req.body;
-    Company.findByIdAndUpdate(req.params.id, updatedCompany, (err, updatedCompany) => {
+    Company.findByIdAndUpdate(req.params.id, updatedCompany, (err) => {
         if(err) {
             res.json({success: false, message: `Failed to updated a new company. Error: ${err}`});
         }

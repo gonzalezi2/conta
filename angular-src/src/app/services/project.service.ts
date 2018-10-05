@@ -28,6 +28,13 @@ export class ProjectService {
     .map(res => res.json());
   }
 
+  updateProject(company_id, project_id, updatedProject) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(`api/companies/${company_id}/projects/${project_id}`, updatedProject, {headers: headers})
+    .map(res => res.json());
+  }
+
   addIncome(company_id, project_id, income) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');

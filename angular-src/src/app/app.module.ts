@@ -26,6 +26,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectService } from './services/project.service';
 import { AddProjectComponent } from './components/projects/add-project/add-project.component';
 import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
+import { EditProjectComponent } from './components/projects/edit-project/edit-project.component';
 // Timesheets
 import { TimesheetsComponent } from './components/timesheets/timesheets.component';
 import { AddTimeComponent } from './components/timesheets/add-time/add-time.component';
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
   {path: 'companies/:id/projects', component: ProjectsComponent},
   {path: 'companies/:id/projects/add', component: AddProjectComponent},
   {path: 'companies/:id/projects/:proj_id', component: ViewProjectComponent},
+  {path: 'companies/:id/projects/:proj_id/edit', component: EditProjectComponent},
   {path: 'companies/:id/projects/:proj_id/add-time', component: AddTimeComponent},
   {path: 'companies/:id/projects/:proj_id/add-income', component: AddIncomeComponent},
   {path: 'companies/:id/projects/:proj_id/add-expense', component: AddExpenseComponent},
@@ -74,7 +76,8 @@ const appRoutes: Routes = [
     AddIncomeComponent,
     ExpensesComponent,
     AddExpenseComponent,
-    CompanyCardComponent
+    CompanyCardComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,

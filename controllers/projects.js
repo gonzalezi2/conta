@@ -68,6 +68,16 @@ router.post('/', (req, res) => {
      });
 });
 
+router.put('/:proj_id', (req, res) => {
+    Project.update(req.params.proj_id, req.body, (err, proj) => {
+        if(err) {
+            res.json({success: false, message: err});
+        } else {
+            res.json({success: true, message: 'Successfully updated the project', project: proj})
+        }
+    })
+})
+
 // Add Timesheet
 router.post('/:proj_id/add-time', (req, res) => {
     Project.findById(req.params.proj_id, (err, foundProject) => {

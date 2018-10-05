@@ -16,7 +16,8 @@
           <td>{{p.contract | currency}}</td>
           <td>{{p.balance | currency}}</td>
           <td>
-            <a routerLink="projects/{{p._id}}" class="btn btn-default btn-sm">View Project</a>
+            <button [routerLink]="['./projects', p._id]" class="btn btn-default btn-sm">View Project</button>
+            <button [routerLink]="['./projects', p._id, 'edit']" class="btn btn-default btn-sm" routerLinkActive="router-link-active" >Edit</button>
           </td>
         </tr>
       </tbody>
