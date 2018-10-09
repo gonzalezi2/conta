@@ -47,9 +47,10 @@ app.use('/api/employees', employees);
 //     res.send("Invalid Endpoint");
 // });
 
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'public/index.html'));
-// });
+// Serves the angular application instead of going to the server
+app.get('/*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 //Listen to port
 app.listen(port, () => {
