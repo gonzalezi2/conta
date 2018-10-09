@@ -1,5 +1,6 @@
 *.env
-/node_modules
+/node_modules/
+/public/*
 proxy.conf.json
 settings.json
 notes.md

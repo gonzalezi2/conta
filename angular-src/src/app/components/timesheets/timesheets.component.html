@@ -10,7 +10,7 @@
   <hr>
 <ul class="nav nav-tabs" role="tablist">
   <li role="presentation" *ngFor="let timesheet of project.timesheets; let i = index" [ngClass]="{'active': i === 0}">
-    <a href="#{{timesheet._id}}" aria-controls="home" role="tab" data-toggle="tab">{{timesheet.date | date}}</a></li>
+    <a href="#{{timesheet['_id']}}" aria-controls="home" role="tab" data-toggle="tab">{{timesheet.date | date}}</a></li>
 </ul>
 <div class="tab-content">
     <div role="tabpanel" *ngFor="let timesheet of project.timesheets; let i = index" [ngClass]="{'active': i === 0}" class="tab-pane" id="{{timesheet._id}}">
@@ -40,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of timesheet.hours">
+          <tr *ngFor="let row of timesheet['hours']">
             <td>{{row.employee.name}}</td>
             <td>{{row.wed}}</td>
             <td>{{row.wed_ot}}</td>
@@ -66,9 +66,9 @@
         <tfoot>
           <tr>
             <th colspan="17">Total</th>
-            <th>{{timesheet.tot_hrs}}</th>
-            <th>{{timesheet.tot_ot}}</th>
-            <th>{{timesheet.tot_cost | currency}}</th>
+            <th>{{timesheet['tot_hrs']}}</th>
+            <th>{{timesheet['tot_ot']}}</th>
+            <th>{{timesheet['tot_cost'] | currency}}</th>
           </tr>
         </tfoot>
       </table>

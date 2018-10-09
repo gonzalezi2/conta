@@ -32,7 +32,7 @@
           <div class="flex-column header">Total OT</div>
           <div class="flex-column header">Total Cost</div>
         </div>
-        <div formArrayName="hours" class="table-rows" *ngFor="let hour of timeForm.controls['hours'].controls; let i = index;">
+        <div formArrayName="hours" class="table-rows" *ngFor="let hour of timeForm['value']['hours']; let i = index;">
           <div [formGroupName]="i" class="flex-table">
             <div class="flex-column large">
               <select formControlName="employee" class="form-control table-input">
@@ -96,7 +96,7 @@
         </div>
         <div class="panel panel-default">
           <div class="panel-body">
-            <button class="btn btn-secondary btn-sm" (click)="addNewRow()">Add Row</button>
+            <button class="btn btn-secondary btn-sm" type="button" (click)="addNewRow()">Add Row</button>
           </div>
         </div>
       </div>

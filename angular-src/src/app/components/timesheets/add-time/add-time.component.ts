@@ -48,6 +48,7 @@ export class AddTimeComponent implements OnInit {
       tot_ot: 0,
       tot_cost: 0
     });
+    console.log(this.timeForm);
   }
   createRow(): FormGroup {
     return this.fb.group({
