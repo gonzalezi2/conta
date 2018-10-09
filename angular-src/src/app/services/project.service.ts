@@ -47,4 +47,10 @@ export class ProjectService {
     return this.http.post(`api/companies/${company_id}/projects/${project_id}/add-expense`, expense, {headers: headers})
     .map(res => res.json());
   }
+  addTime(company_id, project_id, timesheet) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(`api/companies/${company_id}/projects/${project_id}/add-time`, timesheet, {headers: headers})
+    .map(res => res.json());
+  }
 }

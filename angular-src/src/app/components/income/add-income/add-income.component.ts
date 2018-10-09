@@ -37,8 +37,6 @@ export class AddIncomeComponent implements OnInit {
     const proj_id = this.route.snapshot.paramMap.get('proj_id');
     if (this.incomeForm.valid) {
       this.projectService.addIncome(id, proj_id, this.incomeForm.value).subscribe(data => {
-        console.log(data);
-        console.log(this.incomeForm.value);
         if (data.success) {
           this.flashMessage.show(data.message, {cssClass: 'alert-success', timeout: 3000});
           this.router.navigate([`/companies/${id}/projects/${proj_id}`]);

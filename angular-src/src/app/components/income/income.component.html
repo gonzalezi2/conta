@@ -1,4 +1,12 @@
-<h3>Income <span class="label label-success pull-right">{{totalIncome | currency}}</span></h3>
+<div class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h4 class="margin-0">Income <span class="label label-success label-sm">{{totalIncome | currency}}</span></h4>
+  </div>
+  <div class="col-xs-12 col-sm-4 text-right">
+    <a class="btn btn-xs btn-primary" routerLink="add-income">Add Income</a>
+  </div>
+</div>
+
 <hr>
 <table class="table table-striped">
   <thead>

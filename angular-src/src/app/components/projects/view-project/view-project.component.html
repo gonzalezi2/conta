@@ -3,18 +3,13 @@
   <p>Contract Amount: {{project.contract | currency}}</p>
   <p>Balance: {{project.totalBalance | currency}}</p>
 </div>
-<div class='page-header'>
-  <div class='btn-toolbar pull-right'>
-    <a class="btn btn-primary" routerLink="add-income">Add Income</a>
-    <a class="btn btn-primary" routerLink="add-expense">Add Expense</a>
-    <a class="btn btn-primary" routerLink="add-time">Add Timesheet</a>
-  </div>
-</div>
-<h2>Timesheets</h2>
-<hr>
 <app-timesheets [project]="project"></app-timesheets>
-
+<hr class="big-divide">
 <div class="row">
-    <div class="col-xs-7"><app-income [project]="project"></app-income></div>
-    <div class="col-xs-5"><app-expenses [project]="project"></app-expenses></div>
+    <div class="col-xs-7">
+      <app-income [project]="project"></app-income>
+    </div>
+    <div class="col-xs-5">
+      <app-expenses [project]="project"></app-expenses>
+    </div>
 </div>
