@@ -29,7 +29,7 @@ const app = express();
 
 //Middleware for CORS
 app.use(cors());
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(__dirname + '/dist/'));
 
 //Middlewares for bodyparsing using both json and urlencoding
 app.use(bodyParser.urlencoded({extended:true}));
@@ -45,9 +45,9 @@ app.use('/api/employees', employees);
 // });
 
 // Serves the angular application instead of going to the server
-// app.get('/*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'public/index.html'));
-// });
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '/dist/index.html'));
+});
 
 //Listen to port
 app.listen(port, () => {
