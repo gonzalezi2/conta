@@ -14,9 +14,9 @@
           <td>{{i+1}}</td>
           <td>{{p.location}}</td>
           <td>{{p.contract | currency}}</td>
-          <td>{{p.balance | currency}}</td>
+          <td>{{p.totalBalance | currency}}</td>
           <td>
-            <button [routerLink]="['./projects', p._id]" class="btn btn-default btn-sm">View Project</button>
+            <button [routerLink]="['./projects', p._id]" class="btn btn-default btn-sm">View</button>
             <button [routerLink]="['./projects', p._id, 'edit']" class="btn btn-default btn-sm" routerLinkActive="router-link-active" >Edit</button>
           </td>
         </tr>

@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 //GET HTTP method to find a particular project
 router.get('/:proj_id', (req, res) => {
     Project.findById(req.params.proj_id).populate(
-    { 
+    {
         path: 'timesheets',
         model: 'Timesheet',
         populate: {
@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
             // Create a new project to save to the db
             Project.create(newProject, (err, project) => {
                 if (err) {
-                    res.json({success: false, message: "Could not save project", error: err});        
+                    res.json({success: false, message: "Could not save project", error: err});
                 } else {
                     // Push the created project into the company we found
                     foundCompany.projects.push(project._id);
@@ -69,11 +69,13 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:proj_id', (req, res) => {
-    Project.update(req.params.proj_id, req.body, (err, proj) => {
+    Project.findByIdAndUpdate(req.params.proj_id, req.body, (err, foundProject) => {
         if(err) {
             res.json({success: false, message: err});
         } else {
-            res.json({success: true, message: 'Successfully updated the project', project: proj})
+          foundProject.totalBalance = getTotalBalance(foundProject);
+          foundProject.save();
+          res.json({success: true, message: 'Successfully updated the project', project: foundProject})
         }
     })
 })
@@ -137,7 +139,7 @@ function getTotalBalance(project) {
     project.expenses.forEach(element => {
         totalBalance += element.amount;
     });
-    project.timesheet.forEach(element => {
+    project.timesheets.forEach(element => {
         totalBalance -= element.tot_cost;
     })
     return totalBalance;

@@ -30,7 +30,6 @@ export class EditProjectComponent implements OnInit {
       this.projectForm = this.fb.group({
         location: [data.project.location, Validators.required],
         contract: [data.project.contract],
-        totalBalance: data.project.totalBalance,
         balance: [data.project.balance]
       });
     });

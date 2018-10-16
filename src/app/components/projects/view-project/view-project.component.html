@@ -1,15 +1,22 @@
 <div class="well">
-  <h3>{{project.location}}</h3>
-  <p>Contract Amount: {{project.contract | currency}}</p>
-  <p>Balance: {{project.totalBalance | currency}}</p>
+  <div class="row">
+    <div class="col-sm-9">
+        <h3>{{project.location}}</h3>
+        <p>Contract Amount: {{project.contract | currency}}</p>
+        <p>Balance: {{project.totalBalance | currency}}</p>
+    </div>
+    <div class="col-sm-3 text-right">
+      <a class="btn btn-primary" routerLink="edit">Edit Project</a>
+    </div>
+  </div>
 </div>
 <app-timesheets [project]="project"></app-timesheets>
 <hr class="big-divide">
 <div class="row">
-    <div class="col-xs-7">
+    <div class="col-xs-12 col-sm-7">
       <app-income [project]="project"></app-income>
     </div>
-    <div class="col-xs-5">
+    <div class="col-xs-12 col-sm-5">
       <app-expenses [project]="project"></app-expenses>
     </div>
 </div>
