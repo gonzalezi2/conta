@@ -1,27 +1,21 @@
 <div class="card">
-  <div class="row">
-    <div class="col-sm-9">
-        <h3>{{project.location}}</h3>
-        <p>Contract Amount: {{project.contract | currency}}</p>
-        <p>Balance: {{project.totalBalance | currency}}</p>
-    </div>
-    <div class="col-sm-3 text-right">
-      <a class="btn btn-primary" routerLink="edit">Edit Project</a>
-    </div>
+  <div class="card-header">
+      <div class="row">
+        <div class="col-sm-9">
+            <h3>{{project.location}}</h3>
+        </div>
+        <div class="col-sm-3 text-right">
+          <a class="btn btn-primary" routerLink="edit">Edit Project</a>
+        </div>
+      </div>
+  </div>
+  <div class="card-body">
+      <p>Contract Amount: {{project.contract | currency}}</p>
+      <p>Balance: {{project.totalBalance | currency}}</p>
   </div>
 </div>
-<div class="card">
-  <app-timesheets [project]="project"></app-timesheets>
-</div>
+<app-timesheets [project]="project"></app-timesheets>
 <div class="row">
-    <div class="col-xs-12 col-sm-7">
-      <div class="card">
-        <app-income [project]="project"></app-income>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-5">
-      <div class="card">
-        <app-expenses [project]="project"></app-expenses>
-      </div>
-    </div>
+  <app-income [project]="project" class="col-xs-12 col-sm-7"></app-income>
+  <app-expenses [project]="project" class="col-xs-12 col-sm-5"></app-expenses>
 </div>

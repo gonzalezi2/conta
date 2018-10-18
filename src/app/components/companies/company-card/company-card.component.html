@@ -1,22 +1,24 @@
-<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 card grid-item" *ngIf="company.isActive">
-  <div class="card-container">
-      <a routerLink="{{company._id}}" class="card-heading-link">
-        <div class="card-heading">
-          <span class="card-heading-main">{{company.name}}</span>
-          <span class="card-heading-sub">{{company.address}}</span>
-        </div>
-      </a>
-      <div class="card-body">
-        <!-- Projects Should go here instead, with relevant information -->
-        <span class="card-body-item" *ngIf="company.contact"><i class="far fa-address-book"></i> {{company.contact}}</span>
-        <span class="card-body-item" *ngIf="company.phone"><i class="fas fa-phone"></i> {{company.phone}}</span>
-        <span class="card-body-item" *ngIf="company.email"><i class="far fa-envelope"></i> {{company.email}}</span>
-        <span class="card-body-item" *ngIf="company.website"><i class="fas fa-external-link-alt"></i> <a href="http://{{company.website}}" target="_blank">{{company.website}}</a></span>
-        <span class="card-body-item"><i class="far fa-envelope"></i># of Projects: {{company.projects.length}}</span>
-      </div>
-      <div class="card-footer text-right">
-        <a class="btn btn-default btn-sm" routerLink="{{company._id}}">View</a>
-        <a class="btn btn-default btn-sm" routerLink="{{company._id}}/edit">Edit</a>
-      </div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 grid-item" *ngIf="company.isActive">
+  <div class="card">
+    <div class="card-header">
+        <a routerLink="{{company._id}}" class="card-heading-link">
+          <div class="card-heading">
+            <span class="card-heading-main">{{company.name}}</span>
+            <span class="card-heading-sub">{{company.address}}</span>
+          </div>
+        </a>
+    </div>
+    <div class="card-body">
+      <!-- Projects Should go here instead, with relevant information -->
+      <span class="card-body-item" *ngIf="company.contact"><i class="far fa-address-book"></i> {{company.contact}}</span>
+      <span class="card-body-item" *ngIf="company.phone"><i class="fas fa-phone"></i> {{company.phone}}</span>
+      <span class="card-body-item" *ngIf="company.email"><i class="far fa-envelope"></i> {{company.email}}</span>
+      <span class="card-body-item" *ngIf="company.website"><i class="fas fa-external-link-alt"></i> <a href="http://{{company.website}}" target="_blank">{{company.website}}</a></span>
+      <span class="card-body-item"><i class="far fa-envelope"></i># of Projects: {{company.projects.length}}</span>
+    </div>
+    <div class="card-footer text-right">
+      <a class="btn btn-default btn-sm" routerLink="{{company._id}}">View</a>
+      <a class="btn btn-default btn-sm" routerLink="{{company._id}}/edit">Edit</a>
     </div>
   </div>
+</div>
