@@ -1,17 +1,8 @@
 <div *ngIf="company">
-  <div class="well">
+  <div class="card">
     <h3>{{company.name}}</h3>
     <p>{{company.address}}</p>
     <p>Projects: {{company.projects.length}}</p>
-  </div>
-  <div class='page-header'>
-    <div class='btn-toolbar pull-right'>
-        <div class='btn-group'>
-          <a class="btn btn-primary" routerLink="projects/add">Add Project</a>
-        </div>
-    </div>
-    <h2>Projects</h2>
-    <hr>
   </div>
   <app-projects [projects]="company.projects"></app-projects>
 </div>

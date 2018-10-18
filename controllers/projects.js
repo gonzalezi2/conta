@@ -69,14 +69,14 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:proj_id', (req, res) => {
-    Project.findByIdAndUpdate(req.params.proj_id, req.body, (err, foundProject) => {
+    Project.findByIdAndUpdate(req.params.proj_id, req.body, {new: true}, (err, foundProject) => {
         if(err) {
             res.json({success: false, message: err});
-        } else {
-          foundProject.totalBalance = getTotalBalance(foundProject);
-          foundProject.save();
-          res.json({success: true, message: 'Successfully updated the project', project: foundProject})
+            return handleError(err);
         }
+        foundProject.totalBalance = getTotalBalance(foundProject);
+        foundProject.save();
+        res.json({success: true, message: 'Successfully updated the project', project: foundProject})
     })
 })
 

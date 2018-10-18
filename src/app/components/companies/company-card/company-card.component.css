@@ -2,21 +2,21 @@
   padding-bottom: 15px;
 }
 
-.card-container {
+/* .card-container {
   background: #fff;
   box-shadow: 0 0 10px #ddd;
   border: 1px solid #ddd;
-}
+} */
 
-.card-heading {
+/* .card-heading {
   background: #ddd;
   color: #333;
   padding: 10px;
-}
+} */
 
-.card-heading:hover {
+/* .card-heading:hover {
   background: #ccc;
-}
+} */
 
 .card-heading-main {
   font-size: 1.75em;
@@ -48,7 +48,8 @@
 }
 
 .card-footer {
-  background: #f2f2f2;
+  background: #ecf0f1;
+  margin: -10px;
 }
 .card span {
   display: block;
