@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ValidateCompanyService} from '../../../services/validate-company.service';
 import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
+
 import { Router } from '@angular/router';
 import { Company } from '../../../models/Company';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';

@@ -6,7 +6,7 @@ import { Timesheet } from '../../../models/Timesheet';
 import { Employee } from '../../../models/Employee';
 import { EmployeeService } from '../../../services/employee.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import 'rxjs/add/operator/map';
+
 import { environment } from '../../../../environments/environment';
 import { ProjectService } from '../../../services/project.service';
 
