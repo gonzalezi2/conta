@@ -2,23 +2,22 @@
   "name": "angular-src",
   "version": "1.0.0",
   "license": "MIT",
+  "description": "Basic Accounting Software",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
-    "local": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve --proxy-config proxy.conf.json --open",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "7.2.2",
-    "@angular/cli": "7.2.3",
+    "@angular/cli": "^7.3.8",
     "@angular/common": "7.2.2",
     "@angular/compiler": "7.2.2",
-    "@angular/compiler-cli": "7.2.2",
+    "@angular/compiler-cli": "^7.2.14",
     "@angular/core": "7.2.2",
     "@angular/forms": "7.2.2",
     "@angular/http": "7.2.2",
@@ -26,15 +25,9 @@
     "@angular/platform-browser-dynamic": "7.2.2",
     "@angular/router": "7.2.2",
     "angular2-flash-messages": "^2.0.5",
-    "body-parser": "~1.17.2",
     "chart.js": "^2.7.2",
     "core-js": "^2.6.3",
-    "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.3",
-    "mongoose": "~4.11.0",
     "ng2-currency-mask": "^5.3.1",
-    "nodemon": "^1.18.9",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "rxjs-tslint": "^0.1.6",
@@ -43,7 +36,7 @@
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.12.0",
+    "@angular-devkit/build-angular": "^0.13.8",
     "@angular/language-service": "7.2.2",
     "@types/jasmine": "^2.8.16",
     "@types/jasminewd2": "^2.0.6",
@@ -59,9 +52,5 @@
     "protractor": "^5.4.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1"
-  },
-  "engines": {
-    "node": "8.11.4",
-    "npm": "6.4.0"
   }
 }
